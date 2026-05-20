@@ -1,0 +1,396 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/plus-jakarta-sans";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── Light mode — "Nexus Frost" (blue-tinted neutrals + cyan primary) ─────── */
+:root {
+  --background: oklch(0.98 0.006 230);
+  --foreground: oklch(0.12 0.03 230);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0.03 230);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0.03 230);
+  --primary: oklch(72% 0.14 195);
+  --primary-foreground: oklch(0.12 0.03 230);
+  --secondary: oklch(0.94 0.008 230);
+  --secondary-foreground: oklch(0.2 0.03 230);
+  --muted: oklch(0.94 0.008 230);
+  --muted-foreground: oklch(0.5 0.02 230);
+  --accent: oklch(0.93 0.01 230);
+  --accent-foreground: oklch(0.2 0.03 230);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.88 0.01 230);
+  --input: oklch(0.88 0.01 230);
+  --ring: oklch(72% 0.14 195 / 40%);
+  --chart-1: oklch(0.72 0.14 195);
+  --chart-2: oklch(0.65 0.15 160);
+  --chart-3: oklch(0.55 0.18 220);
+  --chart-4: oklch(0.48 0.18 225);
+  --chart-5: oklch(0.42 0.15 230);
+  --radius: 1rem;
+  --sidebar: oklch(0.96 0.008 230);
+  --sidebar-foreground: oklch(0.12 0.03 230);
+  --sidebar-primary: oklch(72% 0.14 195);
+  --sidebar-primary-foreground: oklch(0.12 0.03 230);
+  --sidebar-accent: oklch(0.91 0.012 220);
+  --sidebar-accent-foreground: oklch(0.18 0.03 225);
+  --sidebar-border: oklch(0.88 0.01 230);
+  --sidebar-ring: oklch(72% 0.14 195 / 40%);
+
+  /* Nexus brand gradient — cyan ↔ emerald matching home screen */
+  --nexus-gradient: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 50%, #34d399 100%);
+  --nexus-glow: 0 0 24px oklch(72% 0.14 195 / 30%);
+}
+
+/* ── Dark mode — "Deep Navy Neon" — matches home page #032169 palette ───── */
+.dark {
+  --background: #041e42;
+  --foreground: oklch(0.95 0.005 220);
+  --card: #062b5a;
+  --card-foreground: oklch(0.95 0.005 220);
+  --popover: #062b5a;
+  --popover-foreground: oklch(0.95 0.005 220);
+  --primary: #22d3ee;
+  --primary-foreground: #041e42;
+  --secondary: #0a3468;
+  --secondary-foreground: oklch(0.92 0.005 220);
+  --muted: #0a3468;
+  --muted-foreground: oklch(0.6 0.02 220);
+  --accent: #0d3d78;
+  --accent-foreground: oklch(0.95 0.005 220);
+  --destructive: oklch(0.7 0.19 22);
+  --border: rgba(34, 211, 238, 0.15);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: rgba(34, 211, 238, 0.4);
+  --chart-1: #22d3ee;
+  --chart-2: #34d399;
+  --chart-3: #0ea5e9;
+  --chart-4: #06b6d4;
+  --chart-5: #10b981;
+  --sidebar: #031a3a;
+  --sidebar-foreground: oklch(0.95 0.005 220);
+  --sidebar-primary: #22d3ee;
+  --sidebar-primary-foreground: #041e42;
+  --sidebar-accent: #0a3468;
+  --sidebar-accent-foreground: oklch(0.92 0.005 220);
+  --sidebar-border: rgba(34, 211, 238, 0.12);
+  --sidebar-ring: rgba(34, 211, 238, 0.4);
+
+  --nexus-gradient: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 50%, #34d399 100%);
+  --nexus-glow: 0 0 32px rgba(34, 211, 238, 0.3);
+}
+
+@theme inline {
+  --font-sans: 'Plus Jakarta Sans Variable', sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html, body, #root {
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ── Nexus brand utilities ────────────────────────────────────────────────── */
+.nexus-gradient-text {
+  background: var(--nexus-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nexus-gradient-bg {
+  background: var(--nexus-gradient);
+}
+
+.nexus-glow {
+  box-shadow: var(--nexus-glow);
+}
+
+.nexus-border-glow {
+  border: 1px solid rgba(34, 211, 238, 0.30);
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.15), inset 0 0 16px rgba(34, 211, 238, 0.05);
+}
+
+/* ── Glass morphism card ─────────────────────────────────────────────────── */
+.glass-card {
+  background: oklch(1 0 0 / 6%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid oklch(1 0 0 / 12%);
+}
+
+/* ── Sent message bubble gradient — cyan ↔ blue matching home buttons ──── */
+.bubble-sent {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: white;
+  border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+}
+
+.dark .bubble-sent {
+  background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 100%);
+}
+
+/* ── Received message bubble ─────────────────────────────────────────────── */
+.bubble-received {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+}
+
+/* ── AI Bot message bubble ───────────────────────────────────────────────── */
+.bubble-bot {
+  background: var(--card);
+  border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble-bot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--nexus-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Online pulse dot ────────────────────────────────────────────────────── */
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.6; }
+  70%  { transform: scale(1.8); opacity: 0; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.online-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+
+/* ── Thin scrollbar ──────────────────────────────────────────────────────── */
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.thin-scrollbar::-webkit-scrollbar { width: 4px; }
+.thin-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 9999px;
+}
+
+/* ── Jump-to-message highlight ───────────────────────────────────────────── */
+@keyframes highlight-pulse {
+  0%   { box-shadow: 0 0 0 0px  color-mix(in oklch, var(--primary) 0%,  transparent); }
+  25%  { box-shadow: 0 0 0 3px  color-mix(in oklch, var(--primary) 50%, transparent); }
+  75%  { box-shadow: 0 0 0 3px  color-mix(in oklch, var(--primary) 50%, transparent); }
+  100% { box-shadow: 0 0 0 0px  color-mix(in oklch, var(--primary) 0%,  transparent); }
+}
+.animate-highlight {
+  animation: highlight-pulse 2s ease-in-out forwards;
+}
+
+/* ── Animated gradient border (auth cards) ───────────────────────────────── */
+@keyframes border-rotate {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-border {
+  position: relative;
+}
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(270deg, #22d3ee, #0ea5e9, #34d399, #22d3ee);
+  background-size: 300% 300%;
+  animation: border-rotate 6s ease infinite;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* ── Floating particle animation (hero) ──────────────────────────────────── */
+@keyframes float-up {
+  0%   { transform: translateY(0) scale(1); opacity: 0.6; }
+  100% { transform: translateY(-120px) scale(0.3); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float-up linear infinite;
+  background: var(--nexus-gradient);
+}
+
+/* ── Mesh gradient background ───────────────────────────────────────────── */
+.mesh-bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 40%, rgba(34, 211, 238, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(52, 211, 153, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 50% 20%, rgba(14, 165, 233, 0.10) 0%, transparent 60%),
+    var(--background);
+}
+
+/* ── Active conversation left-border glow ────────────────────────────────── */
+.conv-active {
+  background: rgba(34, 211, 238, 0.10);
+  border-left: 2px solid #22d3ee;
+  box-shadow: inset 2px 0 8px rgba(34, 211, 238, 0.10);
+}
+
+.light .conv-active {
+  background: rgba(14, 165, 233, 0.08);
+  border-left: 2px solid #0ea5e9;
+}
+
+/* ── Reaction badge ──────────────────────────────────────────────────────── */
+.reaction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  user-select: none;
+}
+
+.reaction-badge:hover {
+  background: rgba(34, 211, 238, 0.15);
+  border-color: rgba(34, 211, 238, 0.40);
+  transform: scale(1.08);
+}
+
+.reaction-badge.mine {
+  background: rgba(34, 211, 238, 0.20);
+  border-color: rgba(34, 211, 238, 0.50);
+}
+
+/* ── Emoji picker bar ───────────────────────────────────────────────────── */
+.emoji-picker-bar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 6px;
+  border-radius: 9999px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px oklch(0 0 0 / 20%);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Status badge ────────────────────────────────────────────────────────── */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-style: italic;
+  background: rgba(34, 211, 238, 0.10);
+  color: var(--muted-foreground);
+  border: 1px solid rgba(34, 211, 238, 0.20);
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Mockup Landing page styles ───────────────────────────────────────────── */
+.landing-bg {
+  background: radial-gradient(circle at 15% 25%, rgba(15, 82, 217, 0.65) 0%, transparent 55%),
+              radial-gradient(circle at 85% 75%, rgba(0, 18, 66, 0.8) 0%, transparent 60%),
+              #032169;
+  background-attachment: fixed;
+  color: #ffffff;
+}
+
+.chat-mockup-window {
+  background: linear-gradient(145deg, #0b4ee0 0%, #042578 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.65), 0 0 50px rgba(11, 78, 224, 0.35);
+  border-radius: 1.75rem;
+}
+
+.chat-bubble-mock-user {
+  background: #f8fafc;
+  color: #0f172a;
+  border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+}
+
+.chat-bubble-mock-agent {
+  background: #1e6bf7;
+  color: #ffffff;
+  border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+}
